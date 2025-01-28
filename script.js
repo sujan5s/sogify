@@ -3,7 +3,7 @@ let songs;
 let currfolder;
 
 async function getSongs(folder){
-   
+
     let a = await fetch (`${folder}`)
     let response = await a.text();
     console.log(response,folder);
