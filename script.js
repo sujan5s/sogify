@@ -89,7 +89,7 @@ const playMusic= (track , pause=false)=>{
 
 async function main(){
 
-    await getSongs("/songs/ncs")
+    await getSongs("songs/ncs")
     playMusic(songs[0],true)
 
     let play = document.getElementById("play");
