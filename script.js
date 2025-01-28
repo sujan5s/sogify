@@ -49,7 +49,7 @@ console.log(songs);
 
 const playMusic= (track , pause=false)=>{
     //var audio = new Audio("/songs/"+track);
-    currentSong.src = `/${currfolder}/`+ track
+    currentSong.src = `/sogify/${currfolder}/`+ track
     if(!pause){
         currentSong.play()
         play.src="img/pause.svg"
