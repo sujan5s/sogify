@@ -3,22 +3,10 @@ let songs;
 let currfolder;
 
 async function getSongs(folder){
-    
    
-    const basePath = isLocal ? "" : (window.location.pathname.includes("repo-name") ? "https://github.com/sujan5s/sogify/edit/main/songs/ncs");
-    
-    try {
-        let a = await fetch (`${basePath}`)
-        const response = await fetch(a);
-        console.log(folder, basePath);
-        if (!response.ok) throw new Error(`Error fetching ${a}: ${response.status}`);
-        const data = await response.json(); // Assuming JSON response
-        console.log(data);
-      } catch (error) {
-        console.error("Fetch failed:", error);
-      }
+    let a = await fetch (`${folder}`)
     let response = await a.text();
-    console.log(response)
+    console.log(response,folder);
     let div =document.createElement("div")
     div.innerHTML = response;
     let as=div.getElementsByTagName("a")
@@ -69,7 +57,7 @@ const playMusic= (track , pause=false)=>{
  async function displayAlbum() {
     let a= await fetch(`/songs/`)
     let response= await a.text();
-    let div= document.createElement("div")
+    let div= document.createElement("div");
     div.innerHTML= response;
     let anchors=div.getElementsByTagName("a")
     let cardContainer=document.querySelector(".cardcontainer")
@@ -101,7 +89,7 @@ const playMusic= (track , pause=false)=>{
 
 async function main(){
 
-    await getSongs("songs/ncs")
+    await getSongs("./songs/ncs")
     playMusic(songs[0],true)
 
     let play = document.getElementById("play");
