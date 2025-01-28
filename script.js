@@ -10,10 +10,10 @@ async function getSongs(folder) {
     
     // Parse the JSON response
     let response = await a.json(); // Using .json() instead of .text()
-    
+    console.log(response);
     // Extract the songs array from the JSON data
     const songs = response.songs;
-
+console.log(songs);
     // Get the song list container
     let songUl = document.querySelector(".songlist").getElementsByTagName("ul")[0];
     songUl.innerHTML = ''; // Clear existing song list
