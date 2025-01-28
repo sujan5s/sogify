@@ -3,12 +3,14 @@ let songs;
 let currfolder;
 
 async function getSongs(folder){
-    currfolder=folder;
-    const isLocal = window.location.protocol === "file:" || window.location.hostname === "localhost";
-    const basePath = isLocal ? "" : (window.location.pathname.includes("repo-name") ? "/repo-name" : "");
-    let a = await fetch (`${basePath}/${folder}/`)
+    
+   
+    const basePath = isLocal ? "" : (window.location.pathname.includes("repo-name") ? "https://github.com/sujan5s/sogify/edit/main/songs/ncs");
+    
     try {
+        let a = await fetch (`${basePath}`)
         const response = await fetch(a);
+        console.log(folder, basePath);
         if (!response.ok) throw new Error(`Error fetching ${a}: ${response.status}`);
         const data = await response.json(); // Assuming JSON response
         console.log(data);
